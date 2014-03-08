@@ -1,6 +1,6 @@
 Mytwocents::Application.routes.draw do
   root'posts#index'
-  resources :posts do
+  resources :posts, only: [:create, :index] do
     collection do
     get 'refresh' => 'posts#refresh'
     end
