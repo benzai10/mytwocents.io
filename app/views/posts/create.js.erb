@@ -1,0 +1,4 @@
+$(document).ajaxSuccess(function() {
+    $( ".posts2" ).html( "<%= Post.all.count %>" );
+    $('.posts').html("<%= escape_javascript(render @updated_posts) %>");
+});
