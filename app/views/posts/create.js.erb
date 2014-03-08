@@ -1,4 +1,2 @@
-$(document).ajaxSuccess(function() {
-    $('.posts').html("<%= escape_javascript(render @updated_posts) %>");
-    $('#post_content').val('');
-});
+$('.posts').html("<%= escape_javascript(render @updated_posts) %>");
+$('#post_content').val('');

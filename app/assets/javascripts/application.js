@@ -21,5 +21,5 @@ $(document).ready(
   function(){
     setInterval(function(){
       $('.posts').load('/posts/refresh');
-    }, 15000);
+    }, 5000);
   });
