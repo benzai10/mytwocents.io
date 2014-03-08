@@ -1,13 +1,9 @@
-<div class="panel">
+<div class="">
     <small class="text-left text-muted">
-        #<%= post.id %>
+            <%= time_ago_in_words(post.updated_at) %> ago
     </small>
     <div class="post">
-        <%= auto_link(post.content, html: { :target => '_blank' }) %>
+        <%= simple_format(auto_link(post.content, html: { :target => '_blank' })) %>
     </div>
-    <p class="text-right text-muted">
-        <small>
-            <%= time_ago_in_words(post.updated_at) %> ago
-        </small>
-    </p>
+    <hr>
 </div>

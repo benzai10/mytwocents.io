@@ -1,17 +1,30 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-12">
             <%= image_tag("logo.jpeg", class: "center-block") %>
-            <h4 class="text-center">give your two cents. anyone. anything. anytime. anywhere.</h4>
-
-            <%= render partial: 'form' %>
-
+            <h4 class="captions text-center">
+                give your two cents. anyone. anything. anytime. anywhere.
+            </h4>
             <div class="row">
-                <div class="col-md-12 posts">
+                <div class="col-md-4">
+                    <!-- Button trigger modal -->
+                    <button class="btn btn-primary btn-lg btn-give" data-toggle="modal" data-target="#myModal">
+                        Give your two cents
+                    </button>
+
+                    <div class="counter">
+                        <%= render 'counter', number: @number %>
+                    </div>
+
+                    <%= link_to "Get new posts", root_path, class: "btn btn-primary btn-lg btn-give" %>
+
+                </div>
+                <div class="col-md-8 panel panel-default posts">
                     <%= render @posts %>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
+
+<%= render 'modal' %>

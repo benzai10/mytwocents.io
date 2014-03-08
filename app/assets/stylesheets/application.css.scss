@@ -13,11 +13,36 @@ j* listed below.
  */
 
 @import "bootstrap";
-form {
-  margin-bottom: 25px;
-}
-.post {
-  margin: 0px 15px 0px 15px;
-  display: block !important;
+
+textarea {
+  resize: none;
+  margin-bottom: 5px;
 }
 
+
+.btn-give {
+  width: 360px !important;
+}
+
+.captions {
+  margin-bottom: 40px;
+}
+
+.panel-counter {
+  margin-top: 20px;
+  h1 {
+    font-size: 3em;
+    font-weight: 800;
+  }
+}
+
+.panel {
+  padding: 5px;
+}
+
+.posts {
+
+  height: 500px !important;
+  overflow: auto;
+
+}

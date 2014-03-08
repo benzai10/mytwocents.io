@@ -16,11 +16,12 @@ class PostsController < ApplicationController
   def index
     @post = Post.new
     @posts = Post.limit(100).order("created_at DESC")
+    @number = Post.all.count
   end
 
   def refresh
-    @posts = Post.limit(100).order("created_at DESC")
-    render @posts
+    number_of_posts = Post.all.count
+    render partial: 'counter', locals: {number: number_of_posts}
   end
 
 

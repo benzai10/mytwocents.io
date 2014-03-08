@@ -20,6 +20,6 @@
 $(document).ready(
   function(){
     setInterval(function(){
-      $('.posts').load('/posts/refresh');
+      $('.counter').load('/posts/refresh');
     }, 5000);
   });
