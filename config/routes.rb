@@ -1,6 +1,10 @@
 Mytwocents::Application.routes.draw do
   root'posts#index'
-  resources :posts
+  resources :posts do
+    collection do
+    get 'refresh' => 'posts#refresh'
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

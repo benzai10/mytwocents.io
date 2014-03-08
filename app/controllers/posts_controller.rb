@@ -18,6 +18,12 @@ class PostsController < ApplicationController
     @posts = Post.limit(100).order("created_at DESC")
   end
 
+  def refresh
+    @posts = Post.limit(100).order("created_at DESC")
+    render @posts
+  end
+
+
   private
 
   def post_params

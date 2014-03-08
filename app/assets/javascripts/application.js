@@ -17,4 +17,9 @@
 //= require_tree .
 //= require turbolinks
 
-$("#pink-dancing-elephants").load("/posts/dancing");
+$(document).ready(
+  function(){
+    setInterval(function(){
+      $('.posts').load('/posts/refresh');
+    }, 15000);
+  });
