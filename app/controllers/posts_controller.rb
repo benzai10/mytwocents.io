@@ -7,7 +7,8 @@ class PostsController < ApplicationController
       respond_to do |format|
         format.html { redirect_to root_path }
         format.js { }
-        end
+      end
+      session[:last_post] = post.id
     else
     #fail stuff here
     end
@@ -17,13 +18,20 @@ class PostsController < ApplicationController
     @post = Post.new
     @posts = Post.limit(100).order("created_at DESC")
     @number = Post.all.count
+    session[:last_post] = Post.last.id
   end
 
   def refresh
-    number_of_posts = Post.all.count
-    render partial: 'counter', locals: {number: number_of_posts}
+    n_posts = Post.all.count
+    n_new_posts = Post.last.id - session[:last_post]
+    render partial: 'counter', locals: { number: n_posts, new: n_new_posts }
   end
 
+  def feed
+    @posts = Post.limit(100).order("created_at DESC")
+    session[:last_post] = @posts.first.id
+    render partial: @posts
+  end
 
   private
 

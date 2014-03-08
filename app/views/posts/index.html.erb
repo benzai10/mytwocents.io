@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <%= image_tag("logo.jpeg", class: "center-block") %>
+            <%= image_tag("new_logo.jpg", class: "center-block") %>
             <h4 class="captions text-center">
                 give your two cents. anyone. anything. anytime. anywhere.
             </h4>
@@ -13,10 +13,9 @@
                     </button>
 
                     <div class="counter">
-                        <%= render 'counter', number: @number %>
+                        <%= render 'counter', new: 0, number: @number %>
                     </div>
 
-                    <%= link_to "Get new posts", root_path, class: "btn btn-primary btn-lg btn-give" %>
 
                 </div>
                 <div class="col-md-8 panel panel-default posts">

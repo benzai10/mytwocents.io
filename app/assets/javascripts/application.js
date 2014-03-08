@@ -16,10 +16,3 @@
 //= require bootstrap
 //= require_tree .
 //= require turbolinks
-
-$(document).ready(
-  function(){
-    setInterval(function(){
-      $('.counter').load('/posts/refresh');
-    }, 5000);
-  });

@@ -2,3 +2,9 @@
     <h2>Given cents:</h2>
     <h1><%=number_to_currency(number * 0.02) %></h1>
 </div>
+<% post = pluralize(new, "new post") %>
+<% disabled = String.new %>
+<% if new == 0 %>
+<% disabled = "disabled" %>
+<% end %>
+<%= link_to "Get #{post}", root_path, class: "feed btn btn-primary btn-lg btn-give #{ disabled }" %>
