@@ -13,7 +13,9 @@ j* listed below.
  */
 
 @import "bootstrap";
-
+form {
+  margin-bottom: 25px;
+}
 .post {
   margin: 0px 15px 0px 15px;
   display: block !important;

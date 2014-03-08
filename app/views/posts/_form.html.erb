@@ -1,5 +1,5 @@
 <%= form_for(@post, remote: true) do |f| %>
-    <%= f.text_field(:content, maxlenght: '90', size: '90x1') %>
-    <%= f.submit "Give 2¢" %>
+    <%= f.text_field(:content, autocomplete:'off', size:'82', maxlength:'82') %>
+    <%= f.submit "Give 2¢", class: "button", data: {disable_with: "Loading"} %>
 <% end %>
 
