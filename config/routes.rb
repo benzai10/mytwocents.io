@@ -2,8 +2,9 @@ Mytwocents::Application.routes.draw do
   root'posts#index'
   resources :posts, only: [:create, :index] do
     collection do
-    get 'refresh' => 'posts#refresh'
+    get 'counter' => 'posts#counter'
     get 'feed' => 'posts#feed'
+    get 'new_posts' => 'posts#new_posts'
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

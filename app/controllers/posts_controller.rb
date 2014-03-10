@@ -14,6 +14,17 @@ class PostsController < ApplicationController
     end
   end
 
+  def counter
+    n_posts = Post.all.count
+    render partial: 'counter', locals: { number: n_posts }
+  end
+
+  def feed
+    @posts = Post.limit(100).order("created_at DESC")
+    session[:last_post] = @posts.first.id
+    render partial: @posts
+  end
+
   def index
     @post = Post.new
     @posts = Post.limit(100).order("created_at DESC")
@@ -21,16 +32,10 @@ class PostsController < ApplicationController
     session[:last_post] = Post.last.id
   end
 
-  def refresh
-    n_posts = Post.all.count
+  def new_posts
     n_new_posts = Post.last.id - session[:last_post]
-    render partial: 'counter', locals: { number: n_posts, new: n_new_posts }
-  end
+    render partial: 'new_posts', locals: { new: n_new_posts }
 
-  def feed
-    @posts = Post.limit(100).order("created_at DESC")
-    session[:last_post] = @posts.first.id
-    render partial: @posts
   end
 
   private

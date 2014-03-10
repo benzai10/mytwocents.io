@@ -1,0 +1,7 @@
+<% disabled = String.new %>
+<% if new == 0 %>
+<% label = "primary" %>
+<% else %>
+<% label = "danger" %>
+<% end %>
+<%= link_to "New <span class='badge badge-#{label}'>#{new}</span>".html_safe, root_path, class: "#{ disabled }" %>

@@ -11,7 +11,7 @@ j* listed below.
  *= require_self
  *= require_tree .
  */
-
+$grid-float-breakpoint: 1000px;
 @import "bootstrap";
 
 textarea {
@@ -19,31 +19,23 @@ textarea {
   margin-bottom: 5px;
 }
 
-
-.btn-give {
-  width: 360px !important;
+.navbar-header {
+  img {
+    height: 50px;
+    width: 275px;
+  }
 }
 
 .captions {
   margin-bottom: 40px;
+  margin-top: 100px;
   font-size: 20px;
-}
-
-.panel-counter {
-  margin-top: 20px;
-  h1 {
-    font-size: 3em;
-    font-weight: 800;
-  }
 }
 
 .panel {
   padding: 5px;
 }
 
-.posts {
-
-  height: 500px !important;
-  overflow: auto;
-
+.panel-counter {
+  padding: 15px;
 }
