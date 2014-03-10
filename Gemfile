@@ -4,6 +4,7 @@ ruby "2.0.0"
 gem "bootstrap-sass"
 gem 'rails_autolink'
 gem 'jquery-turbolinks'
+gem 'devise'
 
 group :production do
 # pre-req for Heroku integration, RoR 4+
