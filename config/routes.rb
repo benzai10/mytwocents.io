@@ -1,10 +1,13 @@
 Mytwocents::Application.routes.draw do
+  get "pages/landing"
+  get "pages/terms"
   devise_for :users
   root'posts#index'
   resources :posts, only: [:create, :index] do
     collection do
     get 'counter' => 'posts#counter'
     get 'feed' => 'posts#feed'
+    get 'modal' => 'posts#modal'
     get 'new_posts' => 'posts#new_posts'
     end
   end

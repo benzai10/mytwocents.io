@@ -1,14 +1,26 @@
+<%= render 'modal' %>
+<% if @modal == true %>
+    <% @modal = false %>
+    <script>
+       $('#myModal').modal('show') 
+    </script>
+<% end %>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
             <h4 class="captions text-center">
-                give your two cents. anyone. anything. anytime. anywhere.
+                <em>give your two cents. anyone. anything. anytime. anywhere.</em>
             </h4>
             <div class="row">
-                <div class="col-md-6 col-md-offset-3 panel panel-default posts">
+                <div class="col-md-6 col-md-offset-3 posts">
                     <%= render @posts %>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<footer>
+    <div>
+        <p class="text-center">&copy;2014 - mytwocents.io. All rights reserved - <%= link_to "Terms & Conditions", pages_terms_path %></p>
+    </div>
+</footer>

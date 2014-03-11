@@ -1,9 +1,8 @@
-<div class="">
+<div class="well">
     <small class="text-left text-muted">
             <%= time_ago_in_words(post.updated_at) %> ago
     </small>
     <div class="post">
         <%= simple_format(auto_link(post.content, html: { :target => '_blank' })) %>
     </div>
-    <hr>
 </div>

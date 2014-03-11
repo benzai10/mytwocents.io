@@ -1,17 +1,19 @@
 class PostsController < ApplicationController
 
   def create
-    post = Post.new(post_params)
-    if post.save!
-      @updated_posts = Post.limit(10).order("created_at DESC")
-      respond_to do |format|
-        format.html { redirect_to root_path }
-        format.js { }
+    #if user_signed_in?
+      post = Post.new(post_params)
+      if post.save!
+        @updated_posts = Post.limit(100).order("created_at DESC")
+        session[:last_post] = post.id
+        respond_to do |format|
+          format.html { redirect_to root_path }
+          format.js { }
+        end
+      else
+      #fail stuff here
       end
-      session[:last_post] = post.id
-    else
-    #fail stuff here
-    end
+    #end
   end
 
   def counter
@@ -30,12 +32,20 @@ class PostsController < ApplicationController
     @posts = Post.limit(100).order("created_at DESC")
     @number = Post.all.count
     session[:last_post] = Post.last.id
+    @modal = false
+    if session.delete(:modal) == true
+      @modal = true
+    end
+  end
+
+  def modal
+    redirect_to new_user_session_path
+    session[:modal] = true;
   end
 
   def new_posts
     n_new_posts = Post.last.id - session[:last_post]
     render partial: 'new_posts', locals: { new: n_new_posts }
-
   end
 
   private
