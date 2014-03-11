@@ -20,13 +20,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <%= link_to image_tag("new_logo.jpg", class: ""), root_path %>
+          <%= link_to image_tag("logo_white.png", class: ""), root_path %>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right ">
               <% if controller_name == 'posts' %>
                 <li class="new_posts"><%= render 'new_posts', new: 0 %></li>
-                <li><%= link_to "<button><span class='glyphicon glyphicon-plus'></span></button>".html_safe, '#', data: {toggle:"modal",target: "#myModal"}  %></li>
+                <li><%= link_to "<button class='btn btn-default'><span class='glyphicon glyphicon-plus'></span></button>".html_safe, '#', data: {toggle:"modal",target: "#myModal"}  %></li>
                 <!--<li class="counter"><%# render 'posts/counter', number: @number %></li>-->
               <% end %>
             <% if user_signed_in?%>

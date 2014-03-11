@@ -12,11 +12,25 @@ j* listed below.
  *= require_tree .
  */
 $grid-float-breakpoint: 1000px;
-
 @import "bootstrap";
+$link-color: blue;
 
 body {
+  background-color: #805fc3;
+}
+.navbar {
   background-color: #4a2b88;
+  border-color: #4a2b88;
+}
+.btn-default {
+  background-color: #927ac3;
+  border-color: #927ac3;
+  color: white;
+  &:hover, &:active, &:focus {
+    color: white;
+    background-color: #7e5dbf;
+    border-color: #7e5dbf;
+  }
 }
 
 textarea {
@@ -27,19 +41,30 @@ textarea {
   margin-bottom: 5px;
 }
 
-.captions {
+.caps {
   font-size: 18px;
   margin: 15px 0px 15px 0px;
-  color: #e7e7e7;
+  color: white;
+  a {
+    color: white;
+  }
+}
+
+.footer {
+  @extend .caps;
+  font-size: 14px;
 }
 
 .glyphicon {
   span {
-    margin: -1px 0px 0px 4px;
-    display: block;
-    float: right;
   }
 }
+
+
+  li a {
+    padding: 10px !important;
+  }
+
 .navbar-header {
   img {
     margin-top: 4px;

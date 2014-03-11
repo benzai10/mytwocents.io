@@ -1,7 +1,7 @@
 <%= form_for(@post, remote: true) do |f| %>
     <%= f.text_area(:content, autocomplete:'off', size:'66x10', maxlength:'4000', class: "form-control") %>
     <div class="text-right">
-        <%= f.submit "Submit", class: "btn btn-primary btn-lg", data: {disable_with: "Loading"} %>
+        <%= f.submit "Submit", class: "btn btn-default btn-lg", data: {disable_with: "Loading"} %>
     </div>
 <% end %>
 
