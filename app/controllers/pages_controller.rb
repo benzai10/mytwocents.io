@@ -4,7 +4,7 @@ class PagesController < ApplicationController
 
   def panel
     if current_user.admin == true
-      @total_count = Post.all.count
+      @post_count = Post.all.count
       @posted_count = Post.posted.count
       @deleted_posts = Post.deleted
     else
