@@ -1,16 +1,19 @@
 Mytwocents::Application.routes.draw do
-  get "pages/landing"
-  get "pages/terms"
-  devise_for :users
   root'posts#index'
-  resources :posts, only: [:create, :index] do
+  resources :posts, only: [:create, :index, :destroy] do
     collection do
-    get 'counter' => 'posts#counter'
-    get 'feed' => 'posts#feed'
-    get 'modal' => 'posts#modal'
-    get 'new_posts' => 'posts#new_posts'
+      get 'counter' => 'posts#counter'
+      get 'feed' => 'posts#feed'
+      get 'modal' => 'posts#modal'
+      get 'new_posts' => 'posts#new_posts'
     end
   end
+
+  get "pages/landing"
+  get "pages/panel"
+  get "pages/terms"
+
+  devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,13 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 panel">
+            <h3>Admin Panel</h3>
+            <p>Total Post count: <%= @post_count %></p>
+            <p>Post count: <%= @posted_count %></p>
+            <p>Deleted Post count: <%= @deleted_posts.count %></p>
+            <h3>Deleted posts</h3>
+            <%= render @deleted_posts %>
+        </div>
+    </div>
+</div>
