@@ -22,6 +22,12 @@ body {
   background-color: #4a2b88;
   border-color: #4a2b88;
 }
+.navbar-header {
+  .item {
+    margin: 8px 10px 0px 10px;
+  }
+}
+
 .btn-default {
   background-color: #927ac3;
   border-color: #927ac3;
@@ -53,11 +59,6 @@ textarea {
 .footer {
   @extend .caps;
   font-size: 14px;
-}
-
-.glyphicon {
-  span {
-  }
 }
 
 li a {
