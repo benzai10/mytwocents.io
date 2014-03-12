@@ -19,7 +19,7 @@
                 <span class="item pull-right visible-sm visible-xs"><%= link_to "<button class='btn btn-default'><span class='glyphicon glyphicon-plus'></span></button>".html_safe, '#', data: {toggle:"modal",target: "#myModal"}  %></span>
               <% end %>
         </div>
-        <div class="navbar-collapse collapse">
+        <div class="navbar-collapse collapse hidden-sm hidden-xs">
           <ul class="nav navbar-nav navbar-right ">
               <% if controller_name == 'posts' %>
                 <li class="new_posts"><%= render 'new_posts', new: 0 %></li>

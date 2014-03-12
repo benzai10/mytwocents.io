@@ -3,6 +3,6 @@
             <%= time_ago_in_words(post.updated_at) %> ago
     </small>
     <div class="post">
-        <%= simple_format(auto_link(post.content, html: { :target => '_blank' })) %>
+        <%= h sanitize(simple_format(post.content), :tags => %w(br p)) %>
     </div>
 </div>
