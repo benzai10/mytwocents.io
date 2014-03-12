@@ -49,16 +49,21 @@ textarea {
 
 .caps {
   font-size: 18px;
+  font-weight: 300;
   margin: 15px 0px 15px 0px;
   color: white;
   a {
     color: white;
   }
+
+  .fa {
+    padding-left: 10px;
+  }
 }
 
 .footer {
   @extend .caps;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 li a {
