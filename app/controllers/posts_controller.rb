@@ -4,7 +4,7 @@ class PostsController < ApplicationController
     #if user_signed_in?
       post = Post.new(post_params)
       if post.save!
-        @updated_posts = Post.limit(10).order("created_at DESC")
+        @updated_posts = Post.limit(100).order("created_at DESC")
         respond_to do |format|
           format.html { redirect_to root_path }
           format.js { }
