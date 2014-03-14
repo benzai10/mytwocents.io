@@ -4,7 +4,7 @@
             <i class="<%= get_mood(post.mood_id) %> icon mood" %></i>
         </span>
         <small class="text-left text-muted pull-left">
-            <%= time_ago_in_words(post.updated_at) %> ago
+            <%= time_ago_in_words(post.created_at) %> ago
         </small>
         <% if ! post.user.nil? && post.user.admin == true %>
             <span class="pull-left stamp">mytwocents.io</span>
