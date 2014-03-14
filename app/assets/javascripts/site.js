@@ -2,7 +2,7 @@ $(function() {
 
     //every 5s
     setInterval(function(){
-      $('.counter').load('/posts/counter');
+      $('.happy-row').load('/posts/counter');
       $('.new_posts').load('/posts/new_posts');
     }, 5000);
 

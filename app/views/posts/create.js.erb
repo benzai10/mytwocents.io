@@ -1,5 +1,5 @@
-$('.posts').html("<%= escape_javascript(render @updated_posts) %>");
-$('.counter').load('/posts/counter');
+$('.posts').load('/posts/feed');
 $('.new_posts').load('/posts/new_posts');
+$('.happy-row').load('/posts/counter');
 $('#myModal').modal('hide');
 $('.navbar-collapse').collapse('hide');

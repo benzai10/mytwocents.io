@@ -8,8 +8,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if post.save
-        @updated_posts = Post.posted.limit(100).order("created_at DESC")
-        session[:last_post] = Post.posted.count
+        #@updated_posts = Post.posted.limit(100).order("created_at DESC")
 
         format.html { redirect_to root_path }
         format.js { }
@@ -30,12 +29,15 @@ class PostsController < ApplicationController
           render 'alert'
         }
       end
+      session[:last_post] = Post.posted.count
     end
   end
 
   def counter
-    n_posts = Post.posted.count
-    render partial: 'counter', locals: { number: n_posts }
+    #n_posts = Post.posted.count
+    #render partial: 'counter', locals: { number: n_posts }
+    @happy_meter = Post.all.average(:mood_id)
+    render partial: 'happy_meter'
   end
 
   def destroy
@@ -57,6 +59,7 @@ class PostsController < ApplicationController
     @post = Post.new
     @posts = Post.posted.limit(100).order("created_at DESC")
     @number = Post.posted.count
+    @happy_meter = Post.all.average(:mood_id)
 
     session[:last_post] = Post.posted.count
 

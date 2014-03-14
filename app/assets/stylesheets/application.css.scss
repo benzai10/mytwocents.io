@@ -74,6 +74,7 @@ i {
   color: $navbar !important;
 }
 
+
 .icon {
   font-size: 18px;
   color: $button;
@@ -83,18 +84,20 @@ i {
   margin-top: 4px;
 }
 
-.mood-row {
-  margin-right: 20px;
-}
 .mood {
   @extend .icon;
   cursor: default;
 }
 
-.mood-lg {
-  margin-right: 5px;
-  font-size: 23px;
-  color: $gray-light;
+form {
+  .mood-row {
+    margin-right: 20px;
+  }
+  .mood-lg {
+    margin-right: 5px;
+    font-size: 23px;
+    color: $gray-light;
+  }
 }
 
 .navbar {
@@ -103,33 +106,36 @@ i {
   li a {
     padding: 10px !important;
   }
-}
-
-.navbar-header {
   img {
     margin-top: 4px;
     height: 45px;
     width: 250px;
   }
+
+  .happy-row, .happy-row i {
+    cursor: default;
+    color: white !important;
+    font-weight: 400;
+  }
+
+  .logo-sm {
+    margin-top: 4px;
+    height: 45px;
+    width: 79px;
+  }
+
   .item {
     margin: 8px 10px 0px 10px;
   }
-}
-
-.panel-counter {
-  padding: 18px;
+  .panel-counter {
+    padding: 18px;
+  }
 }
 
 .sign-in {
   width: 500px;
   padding: 30px;
   margin-top: 50px;
-}
-
-.well {
-  padding: 10px;
-  margin-bottom: 10px;
-  background-color: white;
 }
 
 .stamp {
@@ -139,3 +145,10 @@ i {
   font-size: 10px;
   padding: 0 2px;
 }
+
+.well {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: white;
+}
+
