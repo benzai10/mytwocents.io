@@ -24,7 +24,7 @@
           <% if controller_name == 'posts' %>
 
             <%# New post button %>
-            <span class="item pull-right visible-xs visible-sm">
+            <span class="pull-right visible-xs visible-sm">
               <%= link_to "<button class='btn btn-default'><span class='glyphicon glyphicon-plus'></span></button>".html_safe, '#', data: {toggle:"modal",target: "#myModal"}  %>
             </span>
 
@@ -48,7 +48,7 @@
             <% if controller_name == 'posts' %>
 
               <%# Happy meter %>
-              <li class="navbar-text happy-row">
+              <li class="happy-row">
                 <%= render 'happy_meter' %>
               </li>
 

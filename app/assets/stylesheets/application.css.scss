@@ -24,7 +24,7 @@ $button-hover: #7e5dbf;
 
 body {
   background-color: $body;
-  margin-top: 62px;
+  margin-top: 52px;
 }
 
 textarea {
@@ -101,32 +101,40 @@ form {
 }
 
 .navbar {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   background-color: $navbar;
   border-color: $navbar;
+  min-height: 34px;
+
   li a {
-    padding: 10px !important;
+    padding: 5px !important;
   }
+
+  span button{
+    margin: 5px !important;
+  }
+
   img {
-    margin-top: 4px;
     height: 45px;
     width: 250px;
   }
 
   .happy-row, .happy-row i {
+    margin:6px 5px 0px 5px;
+
     cursor: default;
     color: white !important;
-    font-weight: 400;
   }
 
   .logo-sm {
-    margin-top: 4px;
     height: 45px;
     width: 79px;
   }
 
-  .item {
-    margin: 8px 10px 0px 10px;
-  }
   .panel-counter {
     padding: 18px;
   }
