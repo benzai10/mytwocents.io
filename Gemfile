@@ -5,6 +5,7 @@ gem "bootstrap-sass"
 gem 'rails_autolink'
 gem 'jquery-turbolinks'
 gem 'devise'
+gem 'will_paginate'
 
 group :production do
 # pre-req for Heroku integration, RoR 4+

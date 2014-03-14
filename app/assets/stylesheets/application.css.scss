@@ -14,37 +14,38 @@ j* listed below.
 $grid-float-breakpoint: 1000px;
 @import "bootstrap";
 $link-color: blue;
+$body: #805fc3;
+$navbar: #4a2b88;
+$button: #927ac3;
+$button-hover: #7e5dbf;
 
 body {
-  background-color: #805fc3;
-}
-.navbar {
-  background-color: #4a2b88;
-  border-color: #4a2b88;
-}
-.navbar-header {
-  .item {
-    margin: 8px 10px 0px 10px;
-  }
-}
-
-.btn-default {
-  background-color: #927ac3;
-  border-color: #927ac3;
-  color: white;
-  &:hover, &:active, &:focus {
-    color: white;
-    background-color: #7e5dbf;
-    border-color: #7e5dbf;
-  }
+  background-color: $body;
+  margin-top: 62px;
 }
 
 textarea {
   width: 558px;
-  height: 213px;
+  height: 129px;
   padding: 0px;
   resize: none;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
+}
+
+i {
+  cursor: pointer;
+  cursor: hand;
+}
+
+.btn-default {
+  background-color: $button;
+  border-color: $button;
+  color: white;
+  &:hover, &:active, &:focus {
+    color: white;
+    background-color: $button-hover;
+    border-color: $button-hover;
+  }
 }
 
 .caps {
@@ -66,8 +67,39 @@ textarea {
   font-size: 12px;
 }
 
-li a {
-  padding: 10px !important;
+.highlight {
+  color: $navbar !important;
+}
+
+.icon {
+  font-size: 18px;
+  color: $button;
+}
+
+.media-body {
+  margin-top: 4px;
+}
+
+.mood-row {
+  margin-right: 20px;
+}
+.mood {
+  @extend .icon;
+  cursor: default;
+}
+
+.mood-lg {
+  margin-right: 5px;
+  font-size: 23px;
+  color: $gray-light;
+}
+
+.navbar {
+  background-color: $navbar;
+  border-color: $navbar;
+  li a {
+    padding: 10px !important;
+  }
 }
 
 .navbar-header {
@@ -76,10 +108,9 @@ li a {
     height: 45px;
     width: 250px;
   }
-}
-
-.panel {
-  padding: 5px;
+  .item {
+    margin: 8px 10px 0px 10px;
+  }
 }
 
 .panel-counter {
@@ -93,6 +124,7 @@ li a {
 }
 
 .well {
+  padding: 10px;
   margin-bottom: 10px;
   background-color: white;
 }

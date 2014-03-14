@@ -1,7 +1,31 @@
 <%= form_for(@post, remote: true) do |f| %>
-    <%= f.text_area(:content, autocomplete:'off', size:'66x10', maxlength:'4000', class: "form-control") %>
-    <div class="text-right">
-        <%= f.submit "Submit", class: "btn btn-default btn-lg", data: {disable_with: "Loading"} %>
-    </div>
-<% end %>
 
+    <%= f.text_area(:content, placeholder:'Write up to 4,000 characters (you can also copy & paste links)!', size:'66x6', maxlength:'4000', class: "form-control") %>
+
+    <div class="text-right">
+        <div class='myAlert text-center alert alert-danger hidden'>
+            <%= @error %>
+        </div>
+
+        <% if flash[:alert] %>
+        <div class="alert alert-warning alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <%= flash[:alert] %>
+            </div>
+        <% end %>
+
+        <%= f.submit "Submit", class: "btn btn-default btn-lg pull-right", data: {disable_with: "Loading"} %>
+        <%= f.hidden_field :mood_id, value: '' %>
+    </div>
+
+    <div class="text-right"><small class="text-muted mood-row">Choose a mood</small></div>
+
+    <div class="mood-row pull-right">
+        <i class="fa fa-smile-o mood-lg" data-value="100"></i>
+        <i class="fa fa-meh-o mood-lg" data-value="50"></i>
+        <i class="fa fa-frown-o mood-lg" data-value="1"></i>
+    </div>
+
+
+    <div class="clearfix"></div>
+<% end %>

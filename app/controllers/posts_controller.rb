@@ -1,19 +1,33 @@
 class PostsController < ApplicationController
 
   def create
-    #if user_signed_in?
-      post = Post.new(post_params)
-      if post.save!
+    post = Post.new(post_params)
+
+    respond_to do |format|
+      if post.save
         @updated_posts = Post.posted.limit(100).order("created_at DESC")
-        respond_to do |format|
-          format.html { redirect_to root_path }
-          format.js { }
-        end
         session[:last_post] = Post.posted.count
+
+        format.html { redirect_to root_path }
+        format.js { }
       else
-      #fail stuff here
+
+        if post.errors.messages[:content]
+          @error = "Post can not be blank."
+        elsif post.errors.messages[:mood_id]
+          @error = "Please chose a mood."
+        end
+
+        format.html {
+          flash[:alert] = @error
+          session[:modal] = true
+          redirect_to root_path
+        }
+        format.js {
+          render 'alert'
+        }
       end
-    #end
+    end
   end
 
   def counter
@@ -40,16 +54,14 @@ class PostsController < ApplicationController
     @post = Post.new
     @posts = Post.posted.limit(100).order("created_at DESC")
     @number = Post.posted.count
-    session[:last_post] = Post.posted.count
-    @modal = false
-    if session.delete(:modal) == true
-      @modal = true
-    end
-  end
 
-  def modal
-    redirect_to new_user_session_path
-    session[:modal] = true;
+    session[:last_post] = Post.posted.count
+
+    @post_modal = false
+    if session.delete(:modal) == true
+      @post_modal = true
+    end
+
   end
 
   def new_posts
@@ -60,7 +72,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:content,:id)
+    params.require(:post).permit(:content,:mood_id)
   end
 
 end

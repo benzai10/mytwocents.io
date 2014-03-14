@@ -1,11 +1,20 @@
 <div class="well">
-    <small class="text-left text-muted">
+    <div class="media">
+        <span class="pull-left">
+            <i class="<%= get_mood(post.mood_id) %> icon mood" %></i>
+        </span>
+        <small class="text-left text-muted pull-left">
             <%= time_ago_in_words(post.updated_at) %> ago
-    </small>
-    <div class="post">
-        <%= auto_link(simple_format(h post.content)) %>
+        </small>
+        <span class="pull-right">
+            <!--<i class="fa fa-comment-o icon"></i>-->
+        </span>
+        <span class="clearfix"></span>
+        <div class="media-body">
+            <%= auto_link(simple_format(h post.content)) %>
+        </div>
+        <% if user_signed_in? && current_user.admin == true %>
+            <%= link_to "Delete ##{post.id}", post, method: :delete, data: { confirm: "Del?" } %>
+        <% end %>
     </div>
-    <% if user_signed_in? && current_user.admin == true && controller_name == 'posts' %>
-        <%= link_to "Delete ##{post.id}", post, method: :delete, data: { confirm: "Del?" } %>
-    <% end %>
 </div>
