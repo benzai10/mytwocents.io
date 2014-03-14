@@ -70,10 +70,6 @@ i {
   font-size: 12px;
 }
 
-.highlight {
-  color: $navbar !important;
-}
-
 
 .icon {
   font-size: 18px;
@@ -90,13 +86,22 @@ i {
 }
 
 form {
+
+  .highlight {
+    color: $navbar !important;
+  }
+
   .mood-row {
     margin-right: 20px;
   }
+
   .mood-lg {
     margin-right: 5px;
     font-size: 23px;
     color: $gray-light;
+    &:hover {
+      color: $navbar !important;
+    }
   }
 }
 
