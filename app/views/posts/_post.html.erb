@@ -6,6 +6,9 @@
         <small class="text-left text-muted pull-left">
             <%= time_ago_in_words(post.updated_at) %> ago
         </small>
+        <% if ! post.user.nil? && post.user.admin == true %>
+            <span class="pull-left stamp">mytwocents.io</span>
+        <% end %>
         <span class="pull-right">
             <!--<i class="fa fa-comment-o icon"></i>-->
         </span>

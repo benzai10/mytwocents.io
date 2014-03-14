@@ -19,14 +19,10 @@
             <% if controller_name == 'posts' %>
               <span class="item pull-right visible-sm visible-xs"><%= link_to "<button class='btn btn-default'><span class='glyphicon glyphicon-plus'></span></button>".html_safe, '#', data: {toggle:"modal",target: "#myModal"}  %></span>
             <% end %>
-      </div>
-      <div class="navbar-collapse collapse hidden-sm hidden-xs">
-        <ul class="nav navbar-nav navbar-right ">
-            <% if controller_name == 'posts' %>
-              <li class="new_posts"><%= render 'new_posts', new: 0 %></li>
-              <li><%= link_to "<button class='btn btn-default'><span class='glyphicon glyphicon-plus'></span></button>".html_safe, '#', data: {toggle:"modal",target: "#myModal"}  %></li>
-            <% end %>
+
+
           <% if user_signed_in?%>
+            <ul>
             <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %><b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -38,7 +34,16 @@
                 <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
               </ul>
             </li>
+          </ul>
           <% end %>
+
+      </div>
+      <div class="navbar-collapse collapse hidden-sm hidden-xs">
+        <ul class="nav navbar-nav navbar-right ">
+            <% if controller_name == 'posts' %>
+              <li class="new_posts"><%= render 'new_posts', new: 0 %></li>
+              <li><%= link_to "<button class='btn btn-default'><span class='glyphicon glyphicon-plus'></span></button>".html_safe, '#', data: {toggle:"modal",target: "#myModal"}  %></li>
+            <% end %>
         </ul>
 
       </div><!--/.nav-collapse -->

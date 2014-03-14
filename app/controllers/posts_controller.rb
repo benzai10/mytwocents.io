@@ -2,6 +2,9 @@ class PostsController < ApplicationController
 
   def create
     post = Post.new(post_params)
+    if user_signed_in?
+      post.user = current_user
+    end
 
     respond_to do |format|
       if post.save

@@ -4,7 +4,6 @@ Mytwocents::Application.routes.draw do
     collection do
       get 'counter' => 'posts#counter'
       get 'feed' => 'posts#feed'
-      post 'modal' => 'posts#modal'
       get 'new_posts' => 'posts#new_posts'
     end
   end

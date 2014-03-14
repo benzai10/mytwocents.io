@@ -11,9 +11,12 @@ j* listed below.
  *= require_self
  *= require_tree .
  */
+
 $grid-float-breakpoint: 1000px;
 @import "bootstrap";
+$font-size-base: 12px !default;
 $link-color: blue;
+
 $body: #805fc3;
 $navbar: #4a2b88;
 $button: #927ac3;
@@ -127,4 +130,12 @@ i {
   padding: 10px;
   margin-bottom: 10px;
   background-color: white;
+}
+
+.stamp {
+  border: 1px solid $button;
+  border-radius: 3px 3px 3px 3px;
+  color: $button-hover;
+  font-size: 10px;
+  padding: 0 2px;
 }
