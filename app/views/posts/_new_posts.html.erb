@@ -1,7 +1,1 @@
-<% disabled = String.new %>
-<% if new == 0 %>
-<% label = "primary" %>
-<% else %>
-<% label = "danger" %>
-<% end %>
-<%= link_to "<button class='btn btn-default'><span class='glyphicon glyphicon-refresh'><span> #{new}</span></button>".html_safe, root_path, class: "#{ disabled }" %>
+<%= link_to "<button class='btn btn-default'><span class='glyphicon glyphicon-refresh'><span> #{new}</span></button>".html_safe, root_path %>

@@ -14,7 +14,7 @@
         </span>
         <div class="clearfix"></div>
         <div class="media-body">
-            <%= auto_link(simple_format(h post.content)) %>
+            <%= auto_link(simple_format(h post.content), html: {rel: "nofollow"} ) %>
         </div>
         <% if user_signed_in? && current_user.admin == true %>
             <%= link_to "Delete ##{post.id}", post, method: :delete, data: { confirm: "Del?" } %>
