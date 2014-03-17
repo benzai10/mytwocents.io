@@ -65,6 +65,10 @@ i {
   }
 }
 
+.cents {
+  color: $button-hover;
+}
+
 .footer {
   @extend .caps;
   font-size: 12px;
@@ -74,6 +78,9 @@ i {
 .icon {
   font-size: 18px;
   color: $button;
+  &:hover {
+    color: $navbar !important;
+  }
 }
 
 .media-body {
@@ -83,6 +90,9 @@ i {
 .mood {
   @extend .icon;
   cursor: default;
+  &:hover {
+    color: $button !important;
+  }
 }
 
 form {

@@ -7,7 +7,7 @@
         <h4 class="modal-title text-center text-muted" id="myModalLabel">Give your two cents</h4>
       </div>
       <div class="modal-body">
-            <%= render partial: 'posts/form' %>
+        <%= render partial: 'posts/form', locals: {post: @post} %>
       </div>
     </div>
   </div>

@@ -25,19 +25,19 @@
 
             <%# New post button %>
             <span class="pull-right visible-xs visible-sm">
-              <%= link_to "<button class='btn btn-default'><span class='glyphicon glyphicon-plus'></span></button>".html_safe, '#', data: {toggle:"modal",target: "#myModal"}  %>
+              <%= render 'shared/navbar/right_button' %>
             </span>
 
             <%# Happy meter %>
             <span class="happy-row navbar-text pull-right visible-xs visible-sm">
-              <%= render 'happy_meter' %>
+              <%= render 'shared/navbar/happy_meter' %>
             </span>
 
           <% end %>
 
           <%# Logged in user dropdown %>
           <% if user_signed_in?%>
-                <%= render 'user_dropdown' %>
+                <%= render 'shared/navbar/user_dropdown' %>
           <% end %>
       </div><!--/.navbar-header -->
 
@@ -49,14 +49,18 @@
 
               <%# Happy meter %>
               <li class="happy-row">
-                <%= render 'happy_meter' %>
+                <%= render 'shared/navbar/happy_meter' %>
               </li>
 
               <%# Displays new posts %>
-              <li class="new_posts"><%= render 'new_posts', new: 0 %></li>
+              <li class="new_posts">
+                <%= render 'shared/navbar/new_posts', new: 0 %>
+              </li>
 
               <%# New post button %>
-              <li><%= link_to "<button class='btn btn-default'><span class='glyphicon glyphicon-plus'></span></button>".html_safe, '#', data: {toggle:"modal",target: "#myModal"}  %></li>
+              <li>
+                <%= render 'shared/navbar/right_button' %>
+              </li>
             <% end %>
         </ul>
 

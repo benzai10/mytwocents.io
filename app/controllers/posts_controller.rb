@@ -26,18 +26,18 @@ class PostsController < ApplicationController
           redirect_to root_path
         }
         format.js {
-          render 'alert'
+          render 'form_alert'
         }
       end
-      session[:last_post] = Post.posted.count
+      save_number_of_posts
     end
   end
 
   def counter
     #n_posts = Post.posted.count
     #render partial: 'counter', locals: { number: n_posts }
-    @happy_meter = Post.all.average(:mood_id)
-    render partial: 'happy_meter'
+    navbar_counter
+    render partial: 'shared/navbar/happy_meter'
   end
 
   def destroy
@@ -51,7 +51,7 @@ class PostsController < ApplicationController
 
   def feed
     @posts = Post.posted.limit(100).order("created_at DESC")
-    session[:last_post] = Post.posted.count
+    save_number_of_posts
     render partial: @posts
   end
 
@@ -59,10 +59,10 @@ class PostsController < ApplicationController
     @post = Post.new
     @posts = Post.posted.limit(100).order("created_at DESC")
     @number = Post.posted.count
-    @happy_meter = Post.all.average(:mood_id)
 
-    session[:last_post] = Post.posted.count
+    navbar_counter
 
+    save_number_of_posts
     @post_modal = false
     if session.delete(:modal) == true
       @post_modal = true
@@ -72,7 +72,20 @@ class PostsController < ApplicationController
 
   def new_posts
     n_new_posts = Post.posted.count - session[:last_post]
-    render partial: 'new_posts', locals: { new: n_new_posts }
+    render partial: 'shared/navbar/new_posts', locals: { new: n_new_posts }
+  end
+
+  def show
+    @show = true
+    @number = Post.posted.count
+
+    save_number_of_posts
+
+    navbar_counter
+    @post = Post.posted.find(params[:id])
+
+    @comments = Comment.all.where(post_id: params[:id])
+    @comment = Comment.new
   end
 
   private
@@ -81,4 +94,15 @@ class PostsController < ApplicationController
     params.require(:post).permit(:content,:mood_id)
   end
 
+  def save_number_of_posts
+    session[:last_post] = Post.posted.count
+  end
+
+  def navbar_counter
+    @happy_meter = Post.posted.average(:mood_id)
+
+    posts = Post.posted.count * 2
+    comments = Comment.posted.count * 2
+    @total_cents = (posts + comments) * 0.01
+  end
 end

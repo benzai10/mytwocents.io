@@ -1,0 +1,27 @@
+    <div class="media">
+
+        <!-- Mood -->
+        <span class="pull-left">
+            <i class="<%= get_mood(comment.mood_id) %> icon mood" %></i>
+        </span>
+
+
+        <!-- Time -->
+        <small class="text-left text-muted pull-left">
+            <%= time_ago_in_words(comment.created_at) %> ago
+        </small>
+
+        <!-- Admin sticker -->
+        <% if ! comment.user.nil? && comment.user.admin == true %>
+            <span class="pull-left stamp">mytwocents.io</span>
+        <% end %>
+
+        <div class="clearfix"></div>
+
+
+        <!-- Comment -->
+        <div class="media-body">
+            <%= auto_link(simple_format(h truncate comment.content, length: 100), html: {rel: "nofollow"} ) %>
+        </div>
+
+    </div>

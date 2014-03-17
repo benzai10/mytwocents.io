@@ -1,0 +1,5 @@
+<% if @show.nil? %>
+    <%= link_to "<button class='btn btn-default'><span class='glyphicon glyphicon-plus'></span></button>".html_safe, '#', data: {toggle:"modal",target: "#myModal"}  %>
+<% else %>
+    <%= link_to "<button class='btn btn-default'><span class='glyphicon glyphicon-chevron-left'></span></button>".html_safe, root_path  %>
+<% end %>

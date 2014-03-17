@@ -18,13 +18,27 @@
 
         <!-- Comments -->
         <span class="pull-right">
-            <i class="fa fa-comment-o icon"></i>
+                <small class="cents"><%= post.get_cents %> cents</small>
+            <% if @show.nil? %>
+                <% if post.comments.count > 0 %>
+                    <%= link_to '<i class="fa fa-comments icon"></i>'.html_safe, post_path(post.id) %>
+                <% else %>
+                    <%= link_to '<i class="fa fa-comment-o icon"></i>'.html_safe, post_path(post.id) %>
+                <% end %>
+            <% else %>
+                <i class="fa fa-comment-o icon mood"></i>
+            <% end %>
         </span>
         <div class="clearfix"></div>
 
         <!-- Post -->
         <div class="media-body">
-            <%= auto_link(simple_format(h post.content), html: {rel: "nofollow"} ) %>
+            <% if post.content.length > 100 && @show.nil? %>
+                <%= auto_link(simple_format(h truncate post.content, length: 100), html: {rel: "nofollow"} ) %>
+                <%= link_to "<small>Read more</small>".html_safe, post  %>
+            <% else %>
+                <%= auto_link(simple_format(h post.content), html: {rel: "nofollow"} ) %>
+            <% end %>
         </div>
 
         <% if user_signed_in? && current_user.admin == true %>

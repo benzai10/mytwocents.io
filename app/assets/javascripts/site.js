@@ -10,7 +10,7 @@ $(function() {
     $('#myModal').on('hidden.bs.modal', function (e) {
         $('#post_content').val('');
         $('#post_mood_id').val('');
-        $('.modal-dialog i').removeClass('highlight');
+        $('.mood-row i').removeClass('highlight');
         $('.myAlert').hide();
     });
 
@@ -25,15 +25,16 @@ $(function() {
     });
 
     //When click on mood
-    $('.modal-dialog i').click(function() {
+    $('.mood-row i').click(function() {
 
         $('.myAlert').slideUp("fast");
 
         // Set the form value
         $('#post_mood_id').val($(this).attr('data-value'));
+        $('#comment_mood_id').val($(this).attr('data-value'));
 
         // Unhighlight all the images
-        $('.modal-dialog i').removeClass('highlight');
+        $('.mood-row i').removeClass('highlight');
 
         // Highlight the newly selected image
         $(this).addClass('highlight');

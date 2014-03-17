@@ -1,12 +1,13 @@
 Mytwocents::Application.routes.draw do
   root'posts#index'
-  resources :posts, only: [:create, :index, :destroy] do
+  resources :posts, only: [:create, :index, :destroy, :show] do
     collection do
       get 'counter' => 'posts#counter'
       get 'feed' => 'posts#feed'
       get 'new_posts' => 'posts#new_posts'
     end
   end
+  resources :comments, only: [:create]
 
   get "pages/landing"
   get "pages/panel"
