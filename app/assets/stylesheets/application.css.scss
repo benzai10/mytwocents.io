@@ -65,6 +65,10 @@ i {
   }
 }
 
+.comments > .media:last-child {
+  margin-bottom: 10px;
+}
+
 .cents {
   color: $button-hover;
 }
