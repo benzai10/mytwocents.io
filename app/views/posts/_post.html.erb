@@ -33,8 +33,8 @@
 
         <!-- Post -->
         <div class="media-body">
-            <% if post.content.length > 100 && @show.nil? %>
-                <%= auto_link(simple_format(h truncate post.content, length: 100), html: {rel: "nofollow"} ) %>
+            <% if post.content.length > 500 && @show.nil? %>
+                <%= auto_link(simple_format(h truncate post.content, length: 500), html: {rel: "nofollow"} ) %>
                 <%= link_to "<small>Read more</small>".html_safe, post  %>
             <% else %>
                 <%= auto_link(simple_format(h post.content), html: {rel: "nofollow"} ) %>
