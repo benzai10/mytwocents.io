@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  validates :content, presence: true, length: { maximum: 500 }
+  validates :content, presence: true, length: { maximum: 4000 }
   validates :mood_id, presence: true
   validates :post_id, presence: true
 

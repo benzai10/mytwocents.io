@@ -1,6 +1,10 @@
 <%= form_for(post, remote: true) do |f| %>
 
-    <%= f.text_area(:content, placeholder:'Write up to 4,000 characters (you can also copy & paste links)!', size:'66x6', maxlength:'4000', class: "form-control") %>
+    <% if @show.nil? %>
+        <%= f.text_area(:content, placeholder:'Write up to 4,000 characters (you can also copy & paste links)!', size:'66x6', maxlength:'4000', class: "form-control") %>
+    <% else %>
+        <%= f.text_area(:content, placeholder:'Add a comment (you can also copy & paste links)!', size:'66x6', maxlength:'4000', class: "form-control") %>
+    <% end %>
 
     <div class="text-right">
         <div class='myAlert text-center alert alert-danger hidden'>
