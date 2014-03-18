@@ -73,9 +73,8 @@ class PostsController < ApplicationController
   end
 
   def post_feed
-    @posts = return_newest_posts
     save_number_of_posts
-    render partial: @posts
+    render return_newest_posts
   end
 
   def post_feed_filter

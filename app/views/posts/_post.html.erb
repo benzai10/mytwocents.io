@@ -18,7 +18,7 @@
 
         <!-- Comments -->
         <span class="pull-right">
-                <small class="cents"><%= post.get_cents %>&cent;</small>
+                <small class="cents purple"><%= post.get_cents %>&cent;</small>
             <% if @show.nil? %>
                 <% if post.comments.count > 0 %>
                     <%= link_to '<i class="fa fa-comments icon"></i>'.html_safe, post_path(post.id) %>
@@ -26,7 +26,11 @@
                     <%= link_to '<i class="fa fa-comment-o icon"></i>'.html_safe, post_path(post.id) %>
                 <% end %>
             <% else %>
-                <i class="fa fa-comment-o icon mood"></i>
+                <% if post.comments.count > 0 %>
+                    <i class="fa fa-comments icon mood"></i>
+                <% else %>
+                    <i class="fa fa-comment-o icon mood"></i>
+                <% end %>
             <% end %>
         </span>
         <div class="clearfix"></div>
