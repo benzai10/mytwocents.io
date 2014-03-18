@@ -1,5 +1,6 @@
 $(function() {
 
+    $('.loaderImg').hide();
     //every 5s
     setInterval(function(){
       $('.happy-row').load('/posts/nav_counter');
@@ -51,11 +52,20 @@ $(function() {
             data: {
                 filter: $(this).attr('data-value')
             },
+
+            beforeSend: function() {
+                $('.posts').hide();
+                $('.loaderImg').show();    /*showing  a div with spinning image */
+            },
+
             success: function(data) {
+                $('.loaderImg').hide();
                 $('.posts').html(data);
+                $('.posts').show();
                 return false;
             },
             error: function(data) {
+                $('#loaderImg').hide();
                 return false
             }
         });
