@@ -109,9 +109,9 @@ class PostsController < ApplicationController
   end
 
   def return_latest_commented
-      commented_posts = Post.joins(:comments).distinct.limit(100).order("updated_at DESC")
+      commented_posts = Post.posted.joins(:comments).distinct.limit(100).order("updated_at DESC")
       if commented_posts.count < 100
-        commented_posts + Post.joins('left outer join comments on posts.id=comments.post_id').select('posts.*,comments.post_id').where('comments.post_id is null').limit(100 - commented_posts.count).order("created_at DESC")
+        commented_posts + Post.posted.joins('left outer join comments on posts.id=comments.post_id').select('posts.*,comments.post_id').where('comments.post_id is null').limit(100 - commented_posts.count).order("created_at DESC")
       end
   end
 
