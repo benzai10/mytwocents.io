@@ -2,9 +2,10 @@ Mytwocents::Application.routes.draw do
   root'posts#index'
   resources :posts, only: [:create, :index, :destroy, :show] do
     collection do
-      get 'counter' => 'posts#counter'
-      get 'feed' => 'posts#feed'
-      get 'new_posts' => 'posts#new_posts'
+      get 'nav_counter' => 'posts#nav_counter'
+      get 'post_feed' => 'posts#post_feed'
+      post 'post_feed' => 'posts#post_feed_filter'
+      get 'nav_new_posts' => 'posts#nav_new_posts'
     end
   end
   resources :comments, only: [:create]

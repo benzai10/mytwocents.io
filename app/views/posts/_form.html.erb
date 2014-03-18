@@ -1,9 +1,9 @@
 <%= form_for(post, remote: true) do |f| %>
 
     <% if @show.nil? %>
-        <%= f.text_area(:content, placeholder:'Write up to 4,000 characters (you can also copy & paste links)!', size:'66x6', maxlength:'4000', class: "form-control") %>
+        <%= f.text_area(:content, placeholder:'Write up to 4,000 characters (you can also copy & paste links)!', size:'66x6', maxlength:'4000', class: "form-control", id: "form_content") %>
     <% else %>
-        <%= f.text_area(:content, placeholder:'Add a comment (you can also copy & paste links)!', size:'66x6', maxlength:'4000', class: "form-control") %>
+        <%= f.text_area(:content, placeholder:'Add a comment (you can also copy & paste links)!', size:'66x6', maxlength:'4000', class: "form-control", id: "form_content") %>
     <% end %>
 
     <div class="text-right">
@@ -19,8 +19,8 @@
         <% end %>
 
         <%= f.submit "Submit", class: "btn btn-default btn-lg pull-right", data: {disable_with: "Loading"} %>
-        <%= f.hidden_field :post_id, value: params[:id] %>
-        <%= f.hidden_field :mood_id, value: '' %>
+        <%= f.hidden_field :post_id, value: params[:id], id: "form_post_id" %>
+        <%= f.hidden_field :mood_id, value: '', id: "form_mood_id" %>
     </div>
 
     <div class="text-right"><small class="text-muted mood-row">Choose a mood</small></div>

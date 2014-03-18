@@ -11,6 +11,14 @@
     <%= javascript_tag "$('#welcomeModal').modal('show')" %>
 <% end %>
 
+<% if session[:filter] == 'new' || session[:filter].nil? %>
+    <% new = "btn-filter-a" %>
+    <% comment = "" %>
+<% elsif session[:filter] == 'comment'%>
+    <% new = "" %>
+    <% comment = "btn-filter-a" %>
+<% end %>
+
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -29,6 +37,10 @@
                 </a>
             </h4>
             <div class="row">
+                <div class="media col-md-6 col-md-offset-3">
+                    <div class="btn btn-filter col-xs-6 col-md-6 <%= new %>" data-value="new">Latest posts</div>
+                    <div class="btn btn-filter col-xs-6 col-md-6 <%= comment %>" data-value="comment">Last commented</div>
+                </div>
                 <div class="col-md-6 col-md-offset-3 posts">
                     <%= render @posts %>
                 </div>

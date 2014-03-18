@@ -1,9 +1,9 @@
-$('#comment_content').val('');
-$('#comment_mood_id').val('');
+$('#form_content').val('');
+$('#form_mood_id').val('');
 $('.mood-row i').removeClass('highlight');
 
 $('.comments').html("<%= escape_javascript(render(@comments)) %>");
 $('.cents').text("<%= @update_post %> cents");
 
-$('.new_posts').load('/posts/new_posts');
-$('.happy-row').load('/posts/counter');
+$('.new_posts').load('/posts/nav_new_posts');
+$('.happy-row').load('/posts/nav_counter');

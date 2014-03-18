@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
       else
 
         if comment.errors.messages[:content]
-          @error = "comment can not be blank."
+          @error = "Comment can not be blank."
         elsif comment.errors.messages[:mood_id]
           @error = "Please chose a mood."
         end

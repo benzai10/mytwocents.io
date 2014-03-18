@@ -1,4 +1,6 @@
 // Shows error in forms
-$('.myAlert').removeClass('hidden').hide();
 $('.myAlert').text('<%= @error %>');
-$('.myAlert').slideDown("fast");
+if(!$('.myAlert').is(':visible')) {
+    $('.myAlert').removeClass('hidden').hide();
+    $('.myAlert').slideDown("fast");
+}

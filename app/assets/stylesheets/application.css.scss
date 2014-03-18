@@ -51,6 +51,30 @@ i {
   }
 }
 
+.btn-filter-a {
+    color: $body !important;
+    background-color: white !important;
+    border-color: white !important;
+}
+
+.btn-filter {
+  &:first-child {
+    border-top-left-radius: 4px !important;
+    border-bottom-left-radius: 4px !important;
+  }
+  &:last-child {
+    border-top-right-radius: 4px !important;
+    border-bottom-right-radius: 4px !important;
+  }
+  border-radius: 0px;
+  border-color: white;
+  color: white;
+  background: $body;
+  &:hover, &:active, &:focus {
+    color: white;
+  }
+}
+
 .caps {
   font-size: 18px;
   font-weight: 300;
@@ -65,42 +89,57 @@ i {
   }
 }
 
-.comments > .media:last-child {
-  margin-bottom: 10px;
-}
-
-.cents {
-  color: $button-hover;
-}
-
 .footer {
   @extend .caps;
   font-size: 12px;
 }
 
-
-.icon {
-  font-size: 18px;
-  color: $button;
-  &:hover {
-    color: $navbar !important;
+.comments {
+  & > .media:last-child {
+  margin-bottom: 10px;
+  }
+  .cents {
+    color: $button-hover;
   }
 }
 
-.media-body {
-  margin-top: 4px;
+.comments, .posts {
+  .stamp {
+    border: 1px solid $button;
+    border-radius: 3px 3px 3px 3px;
+    color: $button-hover;
+    font-size: 10px;
+    padding: 0 2px;
+  }
 }
 
-.mood {
-  @extend .icon;
-  cursor: default;
-  &:hover {
-    color: $button !important;
+.posts {
+  .well:first-child {
+    margin-top: 10px;
+  }
+
+  .icon {
+    font-size: 18px;
+    color: $button;
+    &:hover {
+      color: $navbar !important;
+    }
+  }
+
+  .media-body {
+    margin-top: 4px;
+  }
+
+  .mood {
+    @extend .icon;
+    cursor: default;
+    &:hover {
+      color: $button !important;
+    }
   }
 }
 
 form {
-
   .highlight {
     color: $navbar !important;
   }
@@ -165,18 +204,14 @@ form {
   margin-top: 50px;
 }
 
-.stamp {
-  border: 1px solid $button;
-  border-radius: 3px 3px 3px 3px;
-  color: $button-hover;
-  font-size: 10px;
-  padding: 0 2px;
-}
-
 .well {
   padding: 10px;
   margin-bottom: 10px;
   background-color: white;
+}
+
+.purple {
+  color: $button-hover;
 }
 
 .white {

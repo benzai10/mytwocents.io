@@ -4,7 +4,7 @@ class Comment < ActiveRecord::Base
   validates :post_id, presence: true
 
   belongs_to :user
-  belongs_to :post
+  belongs_to :post, touch: true
 
   def self.posted
     where(deleted: false)
